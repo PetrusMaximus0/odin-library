@@ -19,14 +19,16 @@ function addBookToLibrary(title, author, pages, read) {
     cleanBookList();
     presentBooks();
 }
+
 function createPElement(text){
-    
     const para = document.createElement("p");
     const node = document.createTextNode(text);
     para.appendChild(node);
     return para;
 }
-function addAButton(inClass, inType, inTextContent, inAppendTo){
+
+function addAButton(inClass, inType, inTextContent, inAppendTo){  
+    
     //create a button to mark as read or (unread)
     const button = document.createElement("button");
     button.className =  inClass;
@@ -140,11 +142,31 @@ function presentBooks(){
     });
 }
 
-
-
-
+/**binds an event to the form on submit such that the information is used for adding books*/
+function bindForm() {
+    const loginForm = document.getElementById("add-book-form");
+    loginForm.addEventListener("submit", (element)=>{
+        element.preventDefault();
+        //retrieve information from the form
+        const title = document.getElementById("title").value;
+        const read = document.getElementById("read").checked;
+        const author = document.getElementById("author").value;
+        const pages = document.getElementById("pages").value;
+        console.log(title,read,author,pages);
+        //reset the form fields?
+        loginForm.reset();
+        //add to library
+        addBookToLibrary(title,author,pages,read);
+    })
+}
 
 //EXECUTE
-addBookToLibrary("The Cat", "Jingleton", 100, true);
-addBookToLibrary("The Cat: vol 2", "Jingleton", 68, false);
-console.log(bookLibrary);
+bindForm();
+addBookToLibrary("Schweeb Chronicles - vol 1", "Adolf Goldbergenstein", 543, false);
+addBookToLibrary("Schweeb Chronicles - vol 2", "Adolf Goldbergenstein", 543, false);
+addBookToLibrary("Schweeb Chronicles - vol 3", "Adolf Goldbergenstein", 543, false);
+addBookToLibrary("Schweeb Chronicles - vol 4", "Adolf Goldbergenstein", 543, false);
+addBookToLibrary("Schweeb Chronicles - vol 5", "Adolf Goldbergenstein", 543, false);
+addBookToLibrary("Schweeb Chronicles - vol 6", "Adolf Goldbergenstein", 543, false);
+
+

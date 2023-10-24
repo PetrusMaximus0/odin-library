@@ -13,38 +13,31 @@
             <h1>The Simple Library</h1>
         </header>
         <div class="content-grid-container">
-            <aside>
-                <h2>Add a new book...</h2>
-                <form id="add-book-form" class="new-book" action="" method="get">
-                    <label for="author">Author: </label>
-                    <input id ="author" name="author" type="text" required>
-        
-                    <label for="title">Title: </label>
-                    <input id="title" name="title" type="text" required>
-        
-                    <label for="pages">Number of pages: </label>
-                    <input id="pages" name="pages" type="number" min="1" required>
-        
-                    <label for="read">Has been read: </label>
-                    <input id="read" name="read" type="checkbox">
+            <aside class="side-bar">
+                <h2 class ="form-header">Add a new book...</h2>
+                <form id="add-book-form" action="" method="get">
+                    <div class="form-item">
+                        <label for="author">Author: </label>
+                        <input id ="author" name="author" type="text" required>
+                    </div>        
+                    <div class="form-item">
+                        <label for="title">Title: </label>
+                        <input id="title" name="title" type="text" required>
+                    </div>        
+                    <div class="form-item">
+                        <label for="pages">Number of pages: </label>
+                        <input id="pages" name="pages" type="number" min="1" required>
+                    </div>        
+                    <div class="form-item">
+                        <label for="read">Has been read: </label>
+                        <input id="read" name="read" type="checkbox">
+                    </div>
                     <button type="submit">Add new book</button>
                 </form>
             </aside>
             <main class="main-grid-container">
-                <h1>Books</h1>
+                <h2 class ="books-header">Books</h2>
                 <ul class = "book-container">
-                    <!--EXAMPLE\TEMPLATE FOR A BOOK
-                    <li class="book-item">
-                        <h2 class ="title">The jingle bob</h2> 
-                        <p class="author">By: Shuub Kimbolin</p>
-                        <p class="pages">Numbering: 68 pages</p>
-                        <p class="read">Has (not)been read</p>
-                        <div class="buttons">
-                            <button class="remove-button" type ="button">Remove Book</button>
-                            <button class= "mark-read-button" type ="button">Mark as (not) read</button>
-                        </div>
-                    </li>
-                    REMOVE THIS EXAMPLE WHEN PAGE COMPLETE-->
                 </ul>
             </main>
         </div>
