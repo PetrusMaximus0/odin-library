@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="grid-container">
+        <header>
+            <h1>The Simple Library</h1>
+        </header>
+        <div class="content-grid-container">
+            <aside>
+                <h2>Add a new book...</h2>
+                <form class="new-book" action="" method="get">
+                    <label for="author">Author: </label>
+                    <input id ="author" name="author" type="text">
+        
+                    <label for="title">Title: </label>
+                    <input id="title" name="title" type="text">
+        
+                    <label for="pages">Number of pages: </label>
+                    <input id="pages" name="pages" type="number" min="1">
+        
+                    <label for="read">Has been read: </label>
+                    <input id="read" name="read" type="checkbox">
+                    <button type="submit">Add new book</button>
+                </form>
+                <h2>Remove book by title..</h2>
+                <form class="remove-book" action="" method="get">
+                    <label for="author">Author: </label>
+                    <input type="text" name="author" id="author">
+                    <button type="submit">Remove Book</button>
+                </form>
+            </aside>
+            <main class="main-grid-container">
+                <h1>Books</h1>
+                <ul class = "book-container">
+                    <!--EXAMPLE\TEMPLATE FOR A BOOK-->
+                    <li class="book-item">
+                        <h2 class ="title">The jingle bob</h2> 
+                        <p class="author">By: Shuub Kimbolin</p>
+                        <p class="pages">Numbering: 68 pages</p>
+                        <p class="read">Has (not)been read</p>
+                        <div class="buttons">
+                            <button class="remove-button" type ="button">Remove Book</button>
+                            <button class= "mark-read-button" type ="button">Mark as (not) read</button>
+                        </div>
+                    </li>
+                    <!--REMOVE THIS EXAMPLE WHEN PAGE COMPLETE-->
+                </ul>
+            </main>
+        </div>
+        <footer>
+            <h2>THIS IS THE FOOTER</h2>
+        </footer>
+        </body>
+    </div>
+</html>
