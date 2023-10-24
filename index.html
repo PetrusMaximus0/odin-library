@@ -15,31 +15,25 @@
         <div class="content-grid-container">
             <aside>
                 <h2>Add a new book...</h2>
-                <form class="new-book" action="" method="get">
+                <form id="add-book-form" class="new-book" action="" method="get">
                     <label for="author">Author: </label>
-                    <input id ="author" name="author" type="text">
+                    <input id ="author" name="author" type="text" required>
         
                     <label for="title">Title: </label>
-                    <input id="title" name="title" type="text">
+                    <input id="title" name="title" type="text" required>
         
                     <label for="pages">Number of pages: </label>
-                    <input id="pages" name="pages" type="number" min="1">
+                    <input id="pages" name="pages" type="number" min="1" required>
         
                     <label for="read">Has been read: </label>
                     <input id="read" name="read" type="checkbox">
                     <button type="submit">Add new book</button>
                 </form>
-                <h2>Remove book by title..</h2>
-                <form class="remove-book" action="" method="get">
-                    <label for="author">Author: </label>
-                    <input type="text" name="author" id="author">
-                    <button type="submit">Remove Book</button>
-                </form>
             </aside>
             <main class="main-grid-container">
                 <h1>Books</h1>
                 <ul class = "book-container">
-                    <!--EXAMPLE\TEMPLATE FOR A BOOK-->
+                    <!--EXAMPLE\TEMPLATE FOR A BOOK
                     <li class="book-item">
                         <h2 class ="title">The jingle bob</h2> 
                         <p class="author">By: Shuub Kimbolin</p>
@@ -50,7 +44,7 @@
                             <button class= "mark-read-button" type ="button">Mark as (not) read</button>
                         </div>
                     </li>
-                    <!--REMOVE THIS EXAMPLE WHEN PAGE COMPLETE-->
+                    REMOVE THIS EXAMPLE WHEN PAGE COMPLETE-->
                 </ul>
             </main>
         </div>
