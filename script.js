@@ -153,18 +153,28 @@ class BookLibrary{
     /**binds an event to the form on submit such that the information is used for adding books*/
     bindForm() {
         const loginForm = document.getElementById("add-book-form");
-        loginForm.addEventListener("submit", (element)=>{
+
+        loginForm.addEventListener("submit", (element) => {
             element.preventDefault();
-            //retrieve information from the form
-            const title = document.getElementById("title").value;
-            const read = document.getElementById("read").checked;
-            const author = document.getElementById("author").value;
-            const pages = document.getElementById("pages").value;
-            console.log(title,read,author,pages);
-            //reset the form fields?
-            loginForm.reset();
-            //add to library
-            this.addBookToLibrary(title,author,pages,read);
+            let storeInfo = true;
+            inputList.forEach((input) => {
+                if (!input.data.validity.valid) {
+                    showError(input.data, input.name);
+                    storeInfo = false;
+                }
+            })
+            if (storeInfo) {
+                //retrieve information from the form
+                const title = document.getElementById("title").value;
+                const read = document.getElementById("read").checked;
+                const author = document.getElementById("author").value;
+                const pages = document.getElementById("pages").value;
+                console.log(title,read,author,pages);
+                //reset the form fields?
+                loginForm.reset();
+                //add to library
+                this.addBookToLibrary(title,author,pages,read);
+            }
         })
     }
 }
@@ -180,3 +190,37 @@ library.addBookToLibrary("Schweeb Chronicles - vol 5", "Adolf Goldbergenstein", 
 library.addBookToLibrary("Schweeb Chronicles - vol 6", "Adolf Goldbergenstein", 543, false);
 
 
+/**Form validation */
+const title = document.querySelector("#title");
+//
+const author = document.querySelector("#author");
+//
+const numberOfPages = document.querySelector("#pages");
+//
+
+const inputList = [];
+inputList.push({ data : title, name:  "title" });
+inputList.push({ data: author, name: "author" });
+inputList.push({ data: numberOfPages, name: "pages" });
+
+//Error messages
+const errorMessages = {
+    title: "Please enter the title of the book.",
+    author: "Please enter the name of the book's author.",
+    pages: "Please enter the number of book pages."
+}
+
+function showError(inputElement, inputName) {
+    const errorElement = document.querySelector(`.${inputName}-error`);
+    if (inputElement.validity.valid) {
+        errorElement.textContent = "";
+        errorElement.classList.remove("active");
+    } else {        
+        errorElement.textContent = errorMessages[inputName];
+        errorElement.classList.add("active");
+    }
+}
+
+title.addEventListener("input", (event) => showError(event.currentTarget, "title"));
+author.addEventListener("input", (event) => showError(event.currentTarget, "author"));
+numberOfPages.addEventListener("input", (event) => showError(event.currentTarget, "pages"));

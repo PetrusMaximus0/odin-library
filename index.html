@@ -15,18 +15,21 @@
         <div class="content-grid-container">
             <aside class="side-bar">
                 <h2 class ="form-header">Add a new book...</h2>
-                <form id="add-book-form" action="" method="get">
+                <form novalidate id="add-book-form" action="" method="get">
                     <div class="form-item">
                         <label for="author">Author: </label>
                         <input id ="author" name="author" type="text" required>
+                        <span class="author-error error" aria-live="polite"></span>
                     </div>        
                     <div class="form-item">
                         <label for="title">Title: </label>
                         <input id="title" name="title" type="text" required>
+                        <span class="title-error error" aria-live="polite"></span>
                     </div>        
                     <div class="form-item">
                         <label for="pages">Number of pages: </label>
                         <input id="pages" name="pages" type="number" min="1" required>
+                        <span class="pages-error error" aria-live="polite"></span>
                     </div>        
                     <div class="form-item">
                         <label for="read">Has been read: </label>
