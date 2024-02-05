@@ -37,12 +37,19 @@ header, main, footer, aside{
 .content-grid-container{
     display:grid;
     grid-template-columns: auto 1fr;
+
     gap:1rem;
 
     background-color: beige;
     padding:1rem;
 
     border-radius: 1rem;
+}
+
+@media screen and (max-width: 780px) {
+    .content-grid-container{
+        grid-template-columns: 1fr;
+    }       
 }
 
 .grid-container{
